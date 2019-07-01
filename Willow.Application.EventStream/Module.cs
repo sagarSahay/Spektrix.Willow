@@ -18,7 +18,13 @@ namespace Willow.Application.EventStream
             builder
                 .Register(x =>
                 {
-                    var connection = EventStoreConnection.Create(ConnectionString);
+                    var settings = ConnectionSettings
+                        .Create()
+                        .KeepReconnecting()
+                        .KeepRetrying()
+                        .FailOnNoServerResponse();
+                    
+                    var connection = EventStoreConnection.Create(ConnectionString, settings);
                     connection.ConnectAsync().Wait();
                     return connection;
                 })

@@ -1,13 +1,13 @@
 namespace Willow.Application.Event
 {
     using System;
-    using System.Collections;
-    using System.Diagnostics.Tracing;
+    using System.Collections.Generic;
     using Events.v1;
+    using Messages.Common;
 
     internal partial class EventAggregate : IEventAggregate
     {
-        public IEnumerable CreateEvent(IHoldEventState state, Guid id, string title, string description)
+        public IEnumerable<Event> CreateEvent(IHoldEventState state, Guid id, string title, string description)
         {
             if (string.IsNullOrEmpty(title))
             {

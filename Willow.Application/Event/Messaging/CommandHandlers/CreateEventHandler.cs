@@ -17,16 +17,29 @@ namespace Willow.Application.Event.Messaging.CommandHandlers
             this.aggregate = aggregate;
         }
 
-        Task IConsumer<CreateEvent>.Consume(ConsumeContext<CreateEvent> context)
+        async Task IConsumer<CreateEvent>.Consume(ConsumeContext<CreateEvent> context)
         {
             var command = context.Message;
             
-            return Task.FromResult(0);
+            using (var session =  await repository.BeginSessionFor(command.EventId, false))
+            {
+                if (session == null)
+                {
+                    // throw exception
+                }
 
-//            await repository.BeginSessionFor(command.EventId, state => aggregate.CreateEvent(state,
-//                command.EventId,
-//                command.Title,
-//                command.Description));
+                if (!session.IsNewState)
+                {
+                    // throw concurrency exception
+                }
+                var state = session.GetCurrentState();
+
+                var events = aggregate.CreateEvent(state, command.EventId, command.Title, command.Description);
+                
+                session.AddEvents(events);
+
+                await session.SaveChanges();
+            }
         }
     }
 }
