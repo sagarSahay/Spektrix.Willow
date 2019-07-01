@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="4.9.2" />
+      <PackageReference Include="MassTransit" Version="5.5.2" />
+      <PackageReference Include="MassTransit.Autofac" Version="5.5.2" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="5.5.2" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+      <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Willow.Denormalizer.Common\Willow.Denormalizer.Common.csproj" />
+      <ProjectReference Include="..\Willow.Denormalizer.Repositories\Willow.Denormalizer.Repositories.csproj" />
+      <ProjectReference Include="..\Willow.Events\Willow.Events.csproj" />
+    </ItemGroup>
+
+</Project>
