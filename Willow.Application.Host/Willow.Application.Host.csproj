@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Willow.Application.EventStream\Willow.Application.EventStream.csproj" />
       <ProjectReference Include="..\Willow.Application\Willow.Application.csproj" />
     </ItemGroup>
 

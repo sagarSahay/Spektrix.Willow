@@ -23,6 +23,12 @@ namespace Willow.Application.Host
 
             var host = settingsResolver("RabbitMqHost");
             var receiveQueue = settingsResolver("ReceiveQueue");
+            
+            builder.RegisterModule(new EventStream.Module
+            {
+                AppliersAssembly = typeof(Application.Module).Assembly,
+                ConnectionString = settingsResolver("Willow.Application.EventStore")
+            });
 
             builder.RegisterModule(new Application.Module());
             RegisterMassTransit(builder);
