@@ -11,6 +11,13 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Willow.Commands\Willow.Commands.csproj" />
+      <ProjectReference Include="..\Willow.Events\Willow.Events.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="BullOak.Repositories, Version=2.3.1.102, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\.nuget\packages\bulloak.repositories\2.3.1\lib\netstandard2.0\BullOak.Repositories.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>
