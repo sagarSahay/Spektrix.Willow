@@ -15,8 +15,8 @@ namespace Willow.Denormalizer.Host
 
         public DenormalizerBusBuilder(Func<string, string> settingsResolver)
         {
-            this.builder = ConfigureContainerBuilder();;
             this.settingsResolver = settingsResolver;
+            this.builder = ConfigureContainerBuilder();
         }
         
         public IContainer NewContainer()
@@ -30,7 +30,6 @@ namespace Willow.Denormalizer.Host
             var containerBuilder = new ContainerBuilder();
 
             containerBuilder.RegisterModule<Repositories.Module>();
-
 
             RegisterMassTransit(containerBuilder);
             RegisterDocumentStore(containerBuilder);

@@ -50,6 +50,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Willow.MessageBus.MassTrans
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Willow.Denormalizer.Host.Console", "Willow.Denormalizer.Host.Console\Willow.Denormalizer.Host.Console.csproj", "{4C313BD9-41C6-4A70-A3C5-8303BD855035}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Query", "Query", "{B157A0A3-E011-4BEF-B572-A0EA1E47E33A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Willow.Query", "Willow.Query\Willow.Query.csproj", "{AFBF5B71-4BE1-48DB-A512-F722D028B26F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +80,7 @@ Global
 		{EF2DCA29-1AE7-458F-AAD7-69E2D8396CA1} = {A6E50729-144B-4570-A078-4F4E8A4EA767}
 		{F1DB2167-479A-4992-9A0F-61292A30D5D1} = {89EF2AEE-1F8F-4B7A-A001-D4ACA5911191}
 		{4C313BD9-41C6-4A70-A3C5-8303BD855035} = {A6E50729-144B-4570-A078-4F4E8A4EA767}
+		{AFBF5B71-4BE1-48DB-A512-F722D028B26F} = {B157A0A3-E011-4BEF-B572-A0EA1E47E33A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4245283D-58BF-4F28-A658-017E5F7C537D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -146,5 +151,9 @@ Global
 		{4C313BD9-41C6-4A70-A3C5-8303BD855035}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C313BD9-41C6-4A70-A3C5-8303BD855035}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C313BD9-41C6-4A70-A3C5-8303BD855035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFBF5B71-4BE1-48DB-A512-F722D028B26F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFBF5B71-4BE1-48DB-A512-F722D028B26F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFBF5B71-4BE1-48DB-A512-F722D028B26F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFBF5B71-4BE1-48DB-A512-F722D028B26F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
