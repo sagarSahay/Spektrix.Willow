@@ -6,6 +6,13 @@ namespace Willow.Application.Event
 
     public interface IEventAggregate
     {
-        IEnumerable<Event> CreateEvent(IHoldEventState state, Guid id, string title, string description);
+        IEnumerable<Event> CreateEvent(IHoldEventState state,
+            Guid id,
+            string title,
+            string description);
+
+        IEnumerable<Event> ChangeEventTitle(IHoldEventState state,
+            Guid id,
+            string title);
     }
 }

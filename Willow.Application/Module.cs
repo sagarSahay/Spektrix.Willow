@@ -1,3 +1,5 @@
+using Willow.Commands;
+
 namespace Willow.Application
 {
     using Autofac;
@@ -9,6 +11,8 @@ namespace Willow.Application
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<CreateEventHandler>().AsImplementedInterfaces();
+
+            builder.RegisterType<UpdateEventTitleHandler>().AsImplementedInterfaces();
             
             builder.RegisterType<EventAggregate>().AsImplementedInterfaces();
             

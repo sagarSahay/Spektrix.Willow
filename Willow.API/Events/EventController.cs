@@ -34,5 +34,29 @@ namespace Willow.API.Events
 
             return Accepted(new EventCreateResponse {EventId = id});
         }
+
+        [HttpPatch]
+        [Route("{id}/title/{newTitle}")]
+        public async Task<IActionResult> ChangeTitle(Guid id, string newTitle)
+        {
+            if (string.IsNullOrEmpty(newTitle))
+            {
+                return BadRequest("Title cannot be blank");
+            }
+
+            if (id == Guid.Empty)
+            {
+                return BadRequest("Please provide event id");
+            }
+
+            var cmd = new UpdateEventTitle
+            {
+                EventId = id,
+                Title = newTitle
+            };
+            await sendEndpoint.Send(cmd);
+
+            return Ok();
+        }
     }
 }

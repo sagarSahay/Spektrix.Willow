@@ -7,7 +7,8 @@ namespace Willow.Denormalizer.Event
     using Repositories.Event.ViewModels;
 
     internal class EventDenormalizer :
-        IConsumer<EventCreated>
+        IConsumer<EventCreated>,
+        IConsumer<EventTitleUpdated>
     {
         private IDenormalizerRepository<EventVM> repository;
 
@@ -31,6 +32,21 @@ namespace Willow.Denormalizer.Event
             var eventDoc = new DocumentBase<EventVM>() {VM = eventVm};
 
             await repository.Upsert(id, eventDoc);
+        }
+
+        public async Task Consume(ConsumeContext<EventTitleUpdated> context)
+        {
+            var message = context.Message;
+            var id = message.EventId.ToString();
+
+            var eventDoc = await repository.GetById(id);
+
+            var eventVm = eventDoc.VM;
+
+            eventVm.Title = message.Title;
+
+            await repository.Upsert(id, eventDoc);
+
         }
     }
 }
